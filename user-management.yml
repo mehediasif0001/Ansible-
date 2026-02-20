@@ -1,0 +1,20 @@
+---
+##########user add ###############
+- name: user create
+  hosts: all
+  become: true
+  tasks:
+  - name: asif user add
+    user:
+      name: asif 
+      comment: this is new user for devOps team
+      shell: /bin/bash
+      # add in group
+      groups: DevOps,Admin,Employee
+############user remove and user data remove ###########
+
+  - name: asif user del and remove data 
+    user:
+      name: asif
+      state: absent
+      remove: yes
