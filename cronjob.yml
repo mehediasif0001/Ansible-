@@ -1,0 +1,31 @@
+---
+- name: create file  module
+  hosts: all
+  become: true
+  tasks:
+  - name: add cronjob
+    cron:
+      name: run job 
+      # which minute (0-59)
+      minute: 30
+      # which hour (0-23)
+      hour: 18
+      # which day of month (0-31)
+      day: 15
+      # which month (0-12)
+      month: "*"
+      #which day of week (0-7) 0 & 1 is sunday
+      weekday: "*"
+      #cron job  which user for ?
+      user: paul
+      job: /tmp/script/test.sh
+
+#chack crontab on tarminal : "crontab -l"
+
+
+# delete cronjob
+  - name: delete cronjob
+    cron:
+      name: run job  #must be same 
+      state: absent 
+      user: paul  #must be same
