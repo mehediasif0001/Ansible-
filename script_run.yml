@@ -1,0 +1,18 @@
+---
+- name: create file  module
+  hosts: all
+  # sudo privilege 
+  become: true
+  tasks:
+  - name: run script
+    #exicute script
+    shell: /root/script.sh
+
+  - name: run script
+    #exicute script
+    shell: /root/script.sh >> test.log
+    args:
+    # change the dir
+      chdir: /tmp/script/
+    # if this file not present , create this
+      create: test.log
