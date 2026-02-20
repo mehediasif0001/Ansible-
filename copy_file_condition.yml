@@ -1,0 +1,30 @@
+---
+- name: task running
+  hosts: all
+  become: true
+  tasks:
+  - name: file copy for tony
+    copy:
+      src: /usr/src/dba/blog.txt
+      dest: /opt/dba
+      owner: tony
+      group: tony
+      mode: '0644'
+    when: inventory_hostname == 'stapp01'
+  - name: file copy for steve
+    copy:
+      src: /usr/src/dba/story.txt
+      dest: /opt/dba
+      owner: steve
+      group: steve
+      mode: '0644'
+    when: inventory_hostname == 'stapp02'
+
+  - name: file copy for banner
+    copy:
+      src: /usr/src/dba/media.txt
+      dest: /opt/dba
+      owner: banner
+      group: banner
+      mode: '0644'
+    when: inventory_hostname == 'stapp03'
