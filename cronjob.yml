@@ -28,8 +28,8 @@
 #######       delete cronjob    ###############
   - name: delete cronjob
     cron:
-      name: run job  #must be same 
+      name: run job  #must be same tasks.cron.name
       state: absent 
-      user: paul  #must be same
+      user: paul  #must be same tasks.cron.user
 
 #again chack crontab on tarminal : "crontab -l"
