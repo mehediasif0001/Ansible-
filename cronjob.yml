@@ -1,4 +1,6 @@
 ---
+
+##########Cron Job add ###############
 - name: create file  module
   hosts: all
   become: true
@@ -23,9 +25,11 @@
 #chack crontab on tarminal : "crontab -l"
 
 
-# delete cronjob
+#######       delete cronjob    ###############
   - name: delete cronjob
     cron:
       name: run job  #must be same 
       state: absent 
       user: paul  #must be same
+
+#again chack crontab on tarminal : "crontab -l"
