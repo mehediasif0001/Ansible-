@@ -1,6 +1,7 @@
 ---
 - name: create file  module
   hosts: all
+  # sudo privilege on
   become: true
   tasks:
   - name: crate blank file
