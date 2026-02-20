@@ -1,0 +1,30 @@
+---
+- name: create file  module
+  hosts: all
+  become: true
+  tasks:
+  - name: crate blank file
+    file:
+      path:  /home/data.txt
+      #blank file
+      state: touch
+      mode: '0644'
+
+  - name: crate a directory
+    file:
+      path:  /home/myfolder
+      #create dir
+      state: directory
+      mode: '0644'
+    
+  - name: delete file
+    file:
+      path:  /home/data.txt
+        #delete
+      state: absent
+ 
+  - name: delete directory
+    file:
+      path:  /home/myfolder
+      #delete
+      state: absent
