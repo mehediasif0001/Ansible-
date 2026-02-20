@@ -1,0 +1,21 @@
+---
+- name: create file  module
+  hosts: all
+  become: true
+  tasks:
+  - name: crate blank file
+    file:
+      path:  /home/data.txt
+      state: touch
+      owner: asif
+      group: devops
+        # permission assign by alphabet
+      mode: u=rwx,g=r,o=r
+  - name: crate another blank file
+    file:
+      path:  /home/data.txt
+      state: touch
+      owner: asif
+      group: devops
+  # permission assign by numbering
+      mode: "744"
