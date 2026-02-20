@@ -10,6 +10,8 @@
       owner: tony
       group: tony
       mode: '0644'
+      #enable file beckup 
+      backup: true
     when: inventory_hostname == 'stapp01'
   - name: file copy for steve
     copy:
